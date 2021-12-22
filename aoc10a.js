@@ -14,14 +14,14 @@ arrObj = [
 var totalScore = 0;
 var checkList = function (msg) {
   var i = 1;
-  while (i > -1 && i < msg.length) {
+  while (i < msg.length) {
     if (ends.includes(msg[i])) {
       if (msg[i - 1] == arrObj.find((o) => o.en === msg[i]).st) {
         msg.splice([i - 1], 2);
         i -= 1;
       } else if (starts.includes(msg[i - 1])) {
         totalScore += arrObj.find((o) => o.en === msg[i]).sc;
-        i = -1;
+        break;
       }
     } else {
       i += 1;
